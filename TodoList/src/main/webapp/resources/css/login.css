@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body,
+html {
+    height: calc(var(--vh, 1vh) * 100);
+    overflow-y: unset;
+    touch-action: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    outline: 0;
+    text-decoration: none;
+}
+
+/* 섹션고정 벗어남 방지 */
+.fix_section {
+    width: 100%;
+    height: calc(var(--vh, 1vh)*100);
+    overflow: hidden;
+}
+
+/* 로그인 섹션 공통설정 및 좌측정렬 */
+.login_section {
+    width: 100%;
+    height: calc(var(--vh, 1vh)*100);
+    float: left;
+    overflow: hidden;
+}
+
+/* section-1 */
+/* flex로 텍스트 세로로 균일하게 배치 */
+#login-01 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+h2.login-01-title {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h2.login-01-title p {
+    font-size: 0.8rem;
+    font-weight: 100;
+}
+
+#login-01 span {
+    font-size: 0.8rem;
+    color: #A4A4A4;
+}
+
+
+
+
+.container-height100 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.container-center {
+    align-items: center;
+}
+
+.login-02-title {
+    padding-top: 40px;
+}
+
+.wrap-input {
+    padding-top: 40px;
+    transition: all 0.7s;
+    border-bottom: 1px solid #222;
+    position: relative;
+}
+
+.wrap-input:hover {
+    border-bottom: 1px solid #5882FA;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: 0;
+
+}
+
+.wrap-input input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    color: #A4A4A4;
+
+}
+
+.wrap-input span {
+    float: right;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    font-size: 0.8rem;
+    color: #585858;
+    display: none;
+}
+
+.wrap-btn {
+    padding-top: 40px;
+}
+
+.wrap-btn button {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrap-input span.on {
+    display: block;
+}
+
+.next-btn {
+    background: #084B8A;
+    color: #fff;
+    padding: 5px 30px;
+    border-radius: 25px;
+    cursor: not-allowed;
+    color: #A4A4A4;
+    border: none;
+}
+
+
+.next-btn.on {
+    background: #5882FA;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* uploadPicture */
+
+.upload-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.register_btn {
+    cursor: pointer;
+}
+
+.register_btn:hover {
+    background: #D8D8D8;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+/* main.html */
+.wrap-content {
+    height: 100vh;
+    position: relative;
+}
+
+.header {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+
+.footer {
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+
+}
+
+.wrap-menu {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#bodyContents {
+    position: fixed;
+    width: 100%;
+}
+
+.add-list-btn {
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    right: 10px;
+    bottom: 70px;
+    border-radius: 50%;
+    background: skyblue;
+}

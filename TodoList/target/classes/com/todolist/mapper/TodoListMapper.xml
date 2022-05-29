@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.todolist.mapper.TodoListMapper">
+	
+	<!-- 할일 목록 보기 -->
+	<select id="list_select" resultType="com.todolist.model.TodoListVO">
+	
+		select id, regiDate from todolist
+	
+	</select>
+	
+	<!-- 할일 등록하기 -->
+	<insert id="list_insert">
+	
+		insert into todolist (id, detail, regidate, COMPLDATE, failStatus, challStatus) values ('test', #{detail}, now(), now(), 0, #{challStatus})
+	
+	</insert>
+	
+	<!-- 할일 수정하기 -->
+	
+	<!-- 할일 삭제하기 -->
+	
+	
+
+</mapper>

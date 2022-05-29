@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig"> 
+    <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property> 
+    <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property> 
+    Oracle 11g 경우 value="jdbc:oracle:thin:@localhost:1521:XE" 
+    Oracle 19 경우 value="jdbc:oracle:thin:@localhost:1521:orcl" 
+    <property name="username" value="pshot"></property> 
+    Oracle 버전에 따라 계정명에 c##을 붙여주어야 하는 경우가 있습니다.
+    <property name="password" value="Vkdnj1324!@$%"></property>
+	</bean>  -->
+	    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig"> 
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property> 
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/TodoList"></property> 
+        <property name="username" value="root"></property> 
+        <property name="password" value="1234"></property> 
+    </bean> 
+    
+    <bean id="datasource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close"> 
+        <constructor-arg ref="hikariConfig"></constructor-arg> 
+    </bean>    
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="datasource"></property>
+    </bean>   
+    
+    <!-- navermail설정 -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"> 
+     <property name="host" value="smtp.naver.com"/> <!-- 메이서버 호스트 -->
+     <property name="port" value="465"/> <!-- 메이서버 포트번호 -->
+     <property name="username" value="kgsa0405@naver.com"/> <!-- 자신의 이메일 아이디 -->
+     <property name="password" value="q1q1p0p0q1!"/> <!-- 자신의 비밀번호 -->
+       <!-- 보안연결 SSL과 관련된 설정 -->
+     <property name="javaMailProperties">
+      <props>
+      <prop key="mail.smtp.auth">true</prop>
+      <prop key="mail.smtp.starttls.enable">true</prop>
+      <prop key="mail.smtps.checkserveridentity">true</prop>
+      <prop key="mail.smtps.ssl.trust">*</prop>
+      <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+      <prop key="mail.debug">true</prop>
+      <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+      </props>
+     </property>
+    </bean>
+    
+
+  	 
+  	<mybatis-spring:scan base-package="com.todolist.mapper"/>
+  	<context:component-scan base-package="com.todolist.controller"></context:component-scan>
+    <context:component-scan base-package="com.todolist.model"></context:component-scan>
+    <context:component-scan base-package="com.todolist.service"></context:component-scan>
+
+    
+</beans>
