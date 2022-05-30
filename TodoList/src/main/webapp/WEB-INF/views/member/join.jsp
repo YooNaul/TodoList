@@ -331,8 +331,6 @@ $(document).ready(function(){
 			<div class="join_button_wrap">
 				<input type="button" class="join_button" value="가입하기">
 			</div>
-			
-		
 	</form>
 	</div>
 	</div>

@@ -1,5 +1,7 @@
 package com.todolist.model;
 
+import java.util.Date;
+
 public class MemberVO {
 	private int idx;
 	private String id;
@@ -9,6 +11,13 @@ public class MemberVO {
 	private String email;
 	private int status;
 	private int ranking;
+	private Date joinDate;
+	public Date getJoinDate() {
+		return joinDate;
+	}
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
+	}
 	public int getIdx() {
 		return idx;
 	}

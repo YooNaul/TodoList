@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.todolist.model.MemberVO;
+import com.todolist.model.TodoListVO;
 import com.todolist.service.MemberService;
 
 
@@ -157,7 +158,15 @@ public class MemberController {
         }
         http://localhost:8080/member/logout.do
         session.setAttribute("member", lvo);             // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
+        session.setAttribute("id", member.getId());
+        session.setAttribute("name", member.getName());
+        session.setAttribute("sex", member.getSex());
+        session.setAttribute("ranking", member.getRanking());
+        session.setAttribute("pass", member.getPass());
+        session.setAttribute("email", member.getEmail());
+        session.setAttribute("joinDate", member.getJoinDate());
         
+        	
         System.out.println("lvo값:"+lvo);
         
         return "redirect:/main";
@@ -176,5 +185,21 @@ public class MemberController {
         session.invalidate();
         
     }
+    
+    /* 마이페이지 */
+	/*
+	 * @RequestMapping(value="/mypage", method=RequestMethod.POST) public String
+	 * mypage(MemberVO vo, TodoListVO list, HttpSession session) throws Exception {
+	 * 
+	 * String id = (String)session.getAttribute("id"); String joinDate =
+	 * (String)session.getAttribute("joinDate"); int ranking =
+	 * (Integer)session.getAttribute("ranking"); int failStatus =
+	 * (Integer)session.getAttribute("failStatus");
+	 * 
+	 * 
+	 * return "redirect:/todolist/mypage";
+	 * 
+	 * }
+	 */
 
 }
