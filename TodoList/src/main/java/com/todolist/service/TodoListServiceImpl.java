@@ -2,8 +2,6 @@ package com.todolist.service;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +23,7 @@ public class TodoListServiceImpl implements TodoListService {
 	@Override
 	public void list_insert(TodoListVO list) throws Exception {
 
-		todolistmapper.list_select(list);
+		todolistmapper.list_insert(list);
 		
 	}
 	

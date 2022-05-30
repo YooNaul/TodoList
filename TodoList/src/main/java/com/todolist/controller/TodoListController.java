@@ -1,5 +1,7 @@
 package com.todolist.controller;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,10 +34,18 @@ public class TodoListController {
 	
 	//할일 리스트뽑아주기
 	@RequestMapping(value="list", method=RequestMethod.GET)
-	public void todoList() throws Exception {
+	public void todoList(TodoListVO list, Model model, HttpServletRequest request, HttpSession session) throws Exception {
 		
-		logger.info("할일 리스트 메서드 진입");
+		String a = (String)session.getAttribute("userId");
+				
 		
+		list.setId(a);
+		
+		System.out.println("A값은????????"+ a);
+		
+		List lists = todolistservice.list_select(list);
+		model.addAttribute("list", lists);
+
 	}
 	
 	@RequestMapping(value="listInsert", method = RequestMethod.GET)
@@ -48,11 +58,9 @@ public class TodoListController {
 	@RequestMapping(value="/listInsert", method = RequestMethod.POST)
     public String todoList_Insert(TodoListVO list, RedirectAttributes rttr) throws Exception{
 		
-		logger.info("list :" +  list);
+		logger.info("/listInsert 진입");
 		
 		todolistservice.list_insert(list);
-		
-		rttr.addFlashAttribute("니 아이디 : ", list.getId());
 		
 		return "redirect:/todolist/list";
  

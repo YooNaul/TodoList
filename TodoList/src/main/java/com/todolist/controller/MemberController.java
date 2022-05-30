@@ -143,6 +143,8 @@ public class MemberController {
 		
 		HttpSession session = request.getSession();
 		MemberVO lvo = memberservice.memberLogin(member);
+		
+		
         
 
 		 

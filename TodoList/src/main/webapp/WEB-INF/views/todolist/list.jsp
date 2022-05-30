@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,29 @@
 </head>
 <body>
 	<h2>니 할일</h2>
-	<h2>zz${list.id}</h2>
-	<h2>zz${list.regiDate }</h2>
-	<h2><a href="/todolist/listInsert">작가 등록</a> </h2>
-	<h2></h2>
-	
+	<h2><a href="/todolist/listInsert">니 할일 등록</a> </h2>
+	<h2>11${name.id }</h2>
+<div class="author_table_wrap">
+             	<table class="author_table">
+             		<thead>
+             			<tr>
+             				<td class="th_column_1">내용</td>
+             				<td class="th_column_2">등록 날짜</td>
+             				<td class="th_column_3">목표 날짜</td>
+             				<td class="th_column_4">챌린지도전여부</td>
+             			</tr>
+             			
+             		</thead>
+             		<c:forEach items="${list}" var="list">
+         		<tr>
+         			<td><c:out value="${list.detail}"></c:out> </td>
+         			<td><fmt:formatDate value="${list.regiDate}" pattern="yyyy-MM-dd hh:MM:ss"/></td>
+         			<td><fmt:formatDate value="${list.complDate}" pattern="yyyy-MM-dd hh:MM:ss"/></td>
+         			<td><c:out value="${list.challStatus}"></c:out> </td>
+         		</tr>
+         		</c:forEach>
+      	</table>                			
+         </div>                    
+
 </body>
 </html>

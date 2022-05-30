@@ -1,5 +1,6 @@
 package com.todolist.model;
 
+import java.sql.Array;
 import java.util.Date;
 
 public class TodoListVO {
@@ -10,12 +11,6 @@ public class TodoListVO {
 	private Date complDate;
 	private int failStatus;
 	private int challStatus;
-	public int getChallStatus() {
-		return challStatus;
-	}
-	public void setChallStatus(int challStatus) {
-		this.challStatus = challStatus;
-	}
 	public int getIdx() {
 		return idx;
 	}
@@ -52,5 +47,12 @@ public class TodoListVO {
 	public void setFailStatus(int failStatus) {
 		this.failStatus = failStatus;
 	}
+	public int getChallStatus() {
+		return challStatus;
+	}
+	public void setChallStatus(int challStatus) {
+		this.challStatus = challStatus;
+	}
+	
 	
 }

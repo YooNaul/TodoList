@@ -7,7 +7,7 @@
 	<!-- 할일 목록 보기 -->
 	<select id="list_select" resultType="com.todolist.model.TodoListVO">
 	
-		select id, regiDate from todolist
+		select detail, regiDate, complDate, challStatus from todolist where id = #{id} order by idx desc
 	
 	</select>
 	
