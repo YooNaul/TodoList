@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.todolist.model.TodoListVO;
 import com.todolist.service.TodoListService;
+import com.todolist.service.TodoListServiceImpl;
 
 
 
@@ -29,6 +31,8 @@ public class TodoListController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
+	private SqlSession sqlSession;
+	
 	@Autowired
 	private TodoListService todolistservice;
 	
@@ -36,13 +40,12 @@ public class TodoListController {
 	@RequestMapping(value="list", method=RequestMethod.GET)
 	public void todoList(TodoListVO list, Model model, HttpServletRequest request, HttpSession session) throws Exception {
 		
-		String a = (String)session.getAttribute("userId");
+		String id = (String)session.getAttribute("id");
+		
+		System.out.println(id);
+		
+		list.setId(id);
 				
-		
-		list.setId(a);
-		
-		System.out.println("A값은????????"+ a);
-		
 		List lists = todolistservice.list_select(list);
 		model.addAttribute("list", lists);
 

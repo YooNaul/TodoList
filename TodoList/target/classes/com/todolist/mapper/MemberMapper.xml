@@ -7,7 +7,7 @@
 	<!-- 로그인 -->
     <select id="memberLogin" resultType="com.todolist.model.MemberVO">
     
-       select id, name, sex, ranking, pass from todo_member where ID = #{id} and PASS = #{pass}
+       select id, name, sex, ranking, pass, joinDate, email from todo_member where ID = #{id} and PASS = #{pass}
     
     </select>
     
@@ -18,11 +18,13 @@
   	
   	</select>
   	
+  	<!-- 회원가입 -->
   	<insert id="memberJoin">
   	
-  		insert into todo_member (id, name, pass, sex, email, status)
-  			values (#{id}, #{name}, #{pass}, #{sex}, #{email}, 2)
+  		insert into todo_member (id, name, pass, sex, email, status, joinDate)
+  			values (#{id}, #{name}, #{pass}, #{sex}, #{email}, 2, now())
   	
   	</insert>
+  	
 
 </mapper>
