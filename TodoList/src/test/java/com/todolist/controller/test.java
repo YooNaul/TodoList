@@ -22,7 +22,7 @@ import org.junit.Test;
 	    @Test 
 	    public void testConnection() { 
 	        try(Connection con = DriverManager.getConnection( 
-	                "jdbc:mysql://localhost:3306/TodoList", 
+	                "jdbc:mysql://localhost:3307/TodoList", 
 	                "root", 
 	                "1234")){ 
 	            System.out.println(con); 

@@ -1,0 +1,143 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+.contents {
+	height: 100vh !important;
+	position : relative;
+	}
+	
+.wrap {
+	height : 100vh
+}	
+
+#login_form {
+	width : 95%;
+	height : 350px;
+	position : absolute;
+	left : 50%;
+	top :50%;
+	transform : translate(-50%, -50%);
+	background :#ffffff;
+	border-radius : 20px;
+	display : flex;
+	justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}	
+
+.login_wrap {
+	width : 100%;
+}
+
+.login_wrap > div {
+	width : 70%;
+	margin : 10px auto;
+	background : #F5F5F5;
+	height : 50px;
+	border-radius : 25px;
+}
+
+.login_wrap > div:last-child {
+	width : 60%;
+	margin : 10px auto;
+	background : #F5F5F5;
+	height : 50px;
+	border-radius : 25px;
+	transition: all 0.3s;
+}
+
+.login_wrap > div:last-child:hover {
+	background :#5B89FF;
+}
+
+.login_wrap > div:last-child input {
+	width: 100%;
+    height: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.login_wrap > div > div > input {
+	border : none;
+	background : transparent;
+	
+}
+
+div > i {
+	font-size : 24px;
+}
+
+.login-input {
+	position:relative;
+}
+
+.login-input i, .login-input input {
+	position : absolute;
+}
+
+.login-input i {
+	top : 8px;
+	left : 12px;
+}
+
+.login-input input {
+	 width: 200px;
+	height: 50px;
+    left: 40px;
+    font-size : 18px;
+    outline : none;
+}
+
+/* 회원가입 */
+
+#join_form {
+	width : 95%;
+	height : 700px;
+	position : absolute;
+	left : 50%;
+	top :50%;
+	transform : translate(-50%, -50%);
+	background :#ffffff;
+	border-radius : 20px;
+	display : flex;
+	justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}	
+
+.join-input {
+		width : 70%;
+	margin : 10px auto;
+	background : #F5F5F5;
+	height : 50px;
+	border-radius : 25px;
+}
+
+div > i {
+	font-size : 24px;
+}
+
+.join-input {
+	position:relative;
+}
+
+.join-input i, .join-input input {
+	position : absolute;
+}
+
+.join-input i {
+	top : 8px;
+	left : 12px;
+}
+
+.join-input input {
+	 width: 200px;
+	height: 50px;
+    left: 40px;
+    font-size : 18px;
+    border:none;
+    outline : none;
+    background:transparent;
+}
+
+
+
