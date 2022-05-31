@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.todolist.mapper.MemberMapper;
 import com.todolist.model.MemberVO;
+import com.todolist.service.MemberService;
 
 
 
@@ -17,6 +18,9 @@ public class MemberMapperTests {
 
 	@Autowired
 	private MemberMapper membermapper;			//MemberMapper.java 인터페이스 의존성 주입
+	
+	@Autowired
+	private MemberService memberservice;
 	
 //	//회원가입 쿼리 테스트 메서드
 //	@Test
@@ -47,22 +51,44 @@ public class MemberMapperTests {
 
 	 
     /* 로그인 쿼리 mapper 메서드 테스트 */
-    @Test
-    public void memberLogin() throws Exception{
-        
-        MemberVO member = new MemberVO();    // MemberVO 변수 선언 및 초기화
-        
-        /* 올바른 아이디 비번 입력경우 */
-        member.setId("test");
-        member.setPass("1234");
-        
-        /* 올바른 않은 아이디 비번 입력경우 */
-        //member.setId("test1123");
-        //member.setPass("test1321321");
-        
-        membermapper.memberLogin(member);
-        System.out.println("결과 값 : " + membermapper.memberLogin(member));
-        
-    }
+//    @Test
+//    public void memberLogin() throws Exception{
+//        
+//        MemberVO member = new MemberVO();    // MemberVO 변수 선언 및 초기화
+//        
+//        /* 올바른 아이디 비번 입력경우 */
+//        member.setId("test");
+//        member.setPass("1234");
+//        
+//        /* 올바른 않은 아이디 비번 입력경우 */
+//        //member.setId("test1123");
+//        //member.setPass("test1321321");
+//        
+//        membermapper.memberLogin(member);
+//        System.out.println("결과 값 : " + membermapper.memberLogin(member));
+//        
+//    }
+//    
+//    @Test
+//    public void editMember() throws Exception{
+//    	MemberVO member = new MemberVO();
+//    	
+//    	member.setName("김도진수정2");
+//    	member.setPass("123456");
+//    	member.setId("test");
+//    	
+//    	memberservice.editMember(member);
+//    }
+	
+//	//회원탈퇴
+//	@Test
+//	public void deleteMember() throws Exception{
+//		
+//		String id = "test4";
+//		
+//		membermapper.deleteMember(id);
+//		
+//	}
+	
 	
 }

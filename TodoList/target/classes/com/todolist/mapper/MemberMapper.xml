@@ -26,5 +26,19 @@
   	
   	</insert>
   	
+  	<!-- 회원정보수정 -->
+  	<update id="editMember">
+  	
+  		update todo_member set name = #{name}, pass = #{pass} where id = #{id}
+  	
+  	</update>
+  	
+  	<!-- 회원탈퇴 -->
+  	<delete id="deleteMember">
+  	
+  		delete from todo_member where id = #{id}
+  	
+  	</delete>
+  	
 
 </mapper>

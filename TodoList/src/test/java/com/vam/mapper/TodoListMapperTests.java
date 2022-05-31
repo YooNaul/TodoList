@@ -20,18 +20,20 @@ public class TodoListMapperTests {
 	 	@Autowired
 	    private TodoListMapper mapper;
 	    
-	    /* 작가 등록 테스트 */
-	    @Test
-	    public void authorEnroll() throws Exception{
-	        
-	        TodoListVO author = new TodoListVO();
-	        
-	        author.setDetail("챌린지 도저언2!");
-	        author.setChallStatus(0);
-	        
-	        mapper.list_insert(author);
-	        
-	    }    
+//	    /* 작가 등록 테스트 */
+//	    @Test
+//	    public void authorEnroll() throws Exception{
+//	        
+//	        TodoListVO author = new TodoListVO();
+//	        
+//	        author.setDetail("챌린지 도저언2!");
+//	        author.setChallStatus(0);
+//	        
+//	        mapper.list_insert(author);
+//	        
+//	    }    
+	 	
+	 	
 	    
 
 }

@@ -7,7 +7,7 @@
 	<!-- 할일 목록 보기 -->
 	<select id="list_select" resultType="com.todolist.model.TodoListVO">
 	
-		select detail, regiDate, complDate, challStatus from todolist where id = #{id} order by idx desc
+		select idx, detail, regiDate, complDate, challStatus, failStatus from todolist where failStatus = 0 and id = #{id} and challStatus = #{challStatus} order by idx desc
 	
 	</select>
 	
@@ -19,9 +19,31 @@
 	</insert>
 	
 	<!-- 할일 수정하기 -->
+	<update id="list_Update">
 	
-	<!-- 할일 삭제하기 -->
+		update todolist set detail = #{detail}, complDate = #{complDate} where id = #{id} and idx = #{idx}
 	
+	</update>
 	
+	<!-- 시간지난거 실패처리 -->
+	<update id="list_timeout">
+	<![CDATA[
+		update todolist set failStatus = 2 where failStatus = 0 and compldate <= now(); 
+	]]>
+	</update>
+	
+	<!-- 성공버튼 클릭 -->
+	<update id="list_sucssess">
+	
+		update todolist set failStatus = 1 where failStatus = 0 and idx = #{idx}
+	
+	</update>
+	
+	<!-- 포기버튼 클릭 -->
+	<update id="list_giveup">
+	
+		update todolist set failStatus = 2 where failStatus = 0 and idx = #{idx}
+	
+	</update>
 
 </mapper>

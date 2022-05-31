@@ -31,5 +31,19 @@ public class MemberServiceImpl implements MemberService {
         
         return membermapper.memberLogin(member);
     }
+    
+    //정보수정
+    @Override
+    public void editMember(MemberVO member) throws Exception {
+
+    	membermapper.editMember(member);
+    }
+    
+    //탈퇴
+    @Override
+    public void deleteMember(MemberVO member) throws Exception {
+    	membermapper.deleteMember(member);
+    	
+    }
  
 }
