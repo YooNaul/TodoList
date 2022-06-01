@@ -230,7 +230,6 @@ input:focus {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    <script src="js/app.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </head>
@@ -270,13 +269,15 @@ input:focus {
 				<h2> 이름 ${member.name }</h2>
 				<h2> 성별 ${member.sex }</h2>
 				<h2> 등급 ${member.ranking }</h2>
-				<span><a href="/todolist/list">니 할일</a></span>
+				<span><a href="/todolist/list">일반 할일</a></span>
+				<span><a href="/todolist/listChall">챌린지 할일</a></span>
+				<span><a href="/member/mypage">마이 페이지</a></span>
 	                    <div class="gnb_logout_button">
                         <ul><li><a id="gnb_logout_button">로그아웃</a></li></ul>
                     </div>
                     </c:if>
 <ul>
-<li><a href="/member/mypage">마이 페이지</a></li>
+
 </ul>
 </div>
 <script>

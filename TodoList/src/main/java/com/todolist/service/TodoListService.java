@@ -11,5 +11,14 @@ public interface TodoListService {
 	
 	//할일 등록
     public void list_insert(TodoListVO list) throws Exception;
+    
+    //시간지난거 실패처리
+    public void list_timeout() throws Exception;
+    
+    //성공버튼 클릭
+    public void list_sucssess(int idx) throws Exception;
+    
+    //포기버튼 클릭
+    public void list_giveup(int idx) throws Exception;
 	
 }

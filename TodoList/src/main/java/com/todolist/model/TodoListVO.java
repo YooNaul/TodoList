@@ -8,7 +8,7 @@ public class TodoListVO {
 	private String id;
 	private String detail;
 	private Date regiDate;
-	private Date complDate;
+	private String complDate;
 	private int failStatus;
 	private int challStatus;
 	public int getIdx() {
@@ -35,10 +35,10 @@ public class TodoListVO {
 	public void setRegiDate(Date regiDate) {
 		this.regiDate = regiDate;
 	}
-	public Date getComplDate() {
+	public String getComplDate() {
 		return complDate;
 	}
-	public void setComplDate(Date complDate) {
+	public void setComplDate(String complDate) {
 		this.complDate = complDate;
 	}
 	public int getFailStatus() {

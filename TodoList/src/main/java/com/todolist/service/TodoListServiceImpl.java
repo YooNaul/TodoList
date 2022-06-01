@@ -27,5 +27,26 @@ public class TodoListServiceImpl implements TodoListService {
 		
 	}
 	
+	@Override
+	public void list_timeout() throws Exception {
+		
+		todolistmapper.list_timeout();
+		
+	}
+	
+	@Override
+	public void list_sucssess(int idx) throws Exception {
+		
+		todolistmapper.list_sucssess(idx);
+		
+	}
+	
+	@Override
+	public void list_giveup(int idx) throws Exception {
+		
+		todolistmapper.list_giveup(idx);
+		
+	}
+	
 	
 }

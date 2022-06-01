@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.todolist.model.MemberVO;
 import com.todolist.model.TodoListVO;
 import com.todolist.service.MemberService;
+import com.todolist.service.TodoListService;
 
 
 @Controller
@@ -32,6 +34,9 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberservice;
+	
+	@Autowired
+	private TodoListService todolistservice;
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -187,19 +192,73 @@ public class MemberController {
     }
     
     /* 마이페이지 */
-	/*
-	 * @RequestMapping(value="/mypage", method=RequestMethod.POST) public String
-	 * mypage(MemberVO vo, TodoListVO list, HttpSession session) throws Exception {
-	 * 
-	 * String id = (String)session.getAttribute("id"); String joinDate =
-	 * (String)session.getAttribute("joinDate"); int ranking =
-	 * (Integer)session.getAttribute("ranking"); int failStatus =
-	 * (Integer)session.getAttribute("failStatus");
-	 * 
-	 * 
-	 * return "redirect:/todolist/mypage";
-	 * 
-	 * }
-	 */
+	 @RequestMapping(value="mypage", method=RequestMethod.GET)
+	 public void mypage(HttpSession session, Model model, TodoListVO list) throws Exception {
+		 
+		  logger.info("마이페이지 페이지 진입");
+		  
+		  String id = (String)session.getAttribute("id");
+		  
+		  session.getAttribute("member");
+		  
+		  session.getAttribute("id");
+		  
+		  list.setId(id);
+		  
+		  List lists = todolistservice.list_select(list);
+		  model.addAttribute("list", lists);
+	  }
+	 
+	 //회원 정보 수정 페이지 진입
+	 @RequestMapping(value="editMember", method = RequestMethod.GET)
+	 public void editMember(){
+		 
+		 logger.info("회원정보 수정 작성 진입");
+	 }
+	 
+	//회원 정보 수정 클릭
+	@RequestMapping(value="/editMember.do", method = RequestMethod.POST)
+	public String editMemberUpdate(MemberVO member, HttpSession session, HttpServletRequest request) throws Exception {
+		 
+		 logger.info("회원정보 수정 폼 보내기");
+		 
+		 memberservice.editMember(member);
+		 
+		 session.invalidate();
+		 
+		 return "redirect:/main";
+		 
+	}
+	
+	//회원 탈퇴
+	@RequestMapping(value="deleteMember", method= RequestMethod.GET)
+	public void deleteMember() throws Exception{	
+		logger.info("회원탈퇴 페이지 진입");
+	}
+	
+	//회원탈퇴
+	@RequestMapping(value="/deleteMember", method= RequestMethod.POST)
+	public String deleteMemberPOST(HttpSession session, MemberVO vo, RedirectAttributes rttr) throws Exception{
+		
+		MemberVO member = (MemberVO)session.getAttribute("member");
+		
+		String origPass = member.getPass(); 
+		String inputPass = vo.getPass();
+		
+		if(!(inputPass.equals(origPass))) {
+			rttr.addFlashAttribute("msg",false);
+			return "redirect:/member/deleteMember";
+		}
+		
+		memberservice.deleteMember(member);
+		session.setAttribute("pass", null);
+		
+		session.invalidate();
+		
+		return "redirect:/main";
+	}
+	
+	
+	 
 
 }
