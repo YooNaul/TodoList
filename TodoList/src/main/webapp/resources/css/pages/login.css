@@ -1,6 +1,6 @@
 @import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 .contents {
-	height: 100vh !important;
+
 	position : relative;
 	}
 	
@@ -13,7 +13,7 @@
 	height : 350px;
 	position : absolute;
 	left : 50%;
-	top :50%;
+	top :60%;
 	transform : translate(-50%, -50%);
 	background :#ffffff;
 	border-radius : 20px;

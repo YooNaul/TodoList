@@ -15,8 +15,25 @@
 <script>
 $(document).ready(function(){
 /* 등록 버튼 */
-	$(".insert_btn").click(function(){    
-	    $("#listInsertForm").submit();
+	$(".insert_btn").click(function(){
+	
+	  /* ajax test */
+		 var formValues = $("form[id=listInsertForm]").serialize() ;
+		 
+	        $.ajax({
+	            type : 'post',
+	            url : 'todolist/listInsert',
+	            data : formValues,
+	            dataType : 'json',
+	            error: function(xhr, status, error){
+	            	
+	            },
+	            success : function(json){
+	            	
+	            }
+	        });
+	        
+	        location.href="/main";
 	});
 	 
 	/* 취소 버튼 */
@@ -29,7 +46,7 @@ $(document).ready(function(){
 
 </script>
 <div> 
-		<form method="post" id="listInsertForm">
+		<form method="post" id="listInsertForm" action="todolist/listInsert">
 		<div class="form_section">
                     			<div class="form_section_title">
                     				<label>내용</label>
@@ -37,7 +54,9 @@ $(document).ready(function(){
                     			<div class="form_section_content">
                     				<input name="detail">
                     			</div>
+                    			
                     		</div>
+                    		
                     		<div class="form_section">
                     			<div class="form_section_title">
                     				<label>챌도전 유무</label>
@@ -50,13 +69,16 @@ $(document).ready(function(){
                     				</select>
                     			</div>
                     		</div>
+                    		
                     		<div class="form_section_title">
                     				<label>목표날짜(yyyy-mm-dd hh:MM:ss 형식)</label>
                     			</div>
+                    			
                     			<div class="form_section_content">
                     				<input name="complDate">
                     			</div>
                     		</div>
+                    		
                    		</form>
                    			<div class="btn_section">
                    				<input type="button" class="cancelBtn" value="취소">
