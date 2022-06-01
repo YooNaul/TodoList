@@ -19,4 +19,7 @@ public interface MemberService {
     //회원탈퇴
     public void deleteMember(MemberVO member) throws Exception;
     
+    //일반 할일 성공시 랭킹 증가
+    public void listSucssessRanking(String memberId) throws Exception;
+    
 }

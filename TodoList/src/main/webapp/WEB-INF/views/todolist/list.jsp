@@ -26,12 +26,12 @@
          		<tr>
          			<td><c:out value="${list.detail}"></c:out> </td>
          			<td><fmt:formatDate value="${list.regiDate}" pattern="yyyy-MM-dd HH:MM:ss"/></td>
-         			<td><fmt:formatDate value="${list.complDate}" pattern="yyyy-MM-dd HH:MM:ss"/></td>
+         			<td><c:out value="${list.complDate}"></c:out></td>
          			<td><c:out value="${list.challStatus}"></c:out> </td>
          			<td><c:out value="${list.failStatus}"></c:out> </td>
-         			<td><a href="/todolist/success?bno=${list.idx }">성공</a></td>
-         			<td><a href="/todolist/listUpdate?bno=${list.idx }">수정</a></td>
-         			<td><a href="/todolist/giveup?bno=${list.idx }">삭제</a></td>
+         			<td><a href="/todolist/success?idx=${list.idx }">성공</a></td>
+         			<td><a href="/todolist/listUpdate?idx=${list.idx }">수정</a></td>
+         			<td><a href="/todolist/giveup?idx=${list.idx }">삭제</a></td>
          		</tr>
          		</c:forEach>
       	</table>                			

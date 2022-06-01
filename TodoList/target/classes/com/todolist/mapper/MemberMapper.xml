@@ -40,5 +40,11 @@
   	
   	</delete>
   	
+  	<update id="listSucssessRanking">
+  	
+  		update todo_member set ranking = ranking + 10 where id = #{id}
+  	
+  	</update>
+  	
 
 </mapper>

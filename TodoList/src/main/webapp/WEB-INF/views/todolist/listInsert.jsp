@@ -29,7 +29,7 @@ $(document).ready(function(){
 
 </script>
 <div> 
-	<form method="post" id="listInsertForm">
+		<form method="post" id="listInsertForm">
 		<div class="form_section">
                     			<div class="form_section_title">
                     				<label>내용</label>
@@ -43,11 +43,18 @@ $(document).ready(function(){
                     				<label>챌도전 유무</label>
                     			</div>
                     			<div class="form_section_content">
-                    				<select name="nationId">
+                    				<select name="challStatus">
                     					<option value="challStatus" selected>=== 선택 ===</option>
-                    					<option value="1">챌도전</option>
-                    					<option value="2">일반도전</option>
+                    					<option value="0">챌도전</option>
+                    					<option value="1">일반도전</option>
                     				</select>
+                    			</div>
+                    		</div>
+                    		<div class="form_section_title">
+                    				<label>목표날짜(yyyy-mm-dd hh:MM:ss 형식)</label>
+                    			</div>
+                    			<div class="form_section_content">
+                    				<input name="complDate">
                     			</div>
                     		</div>
                    		</form>

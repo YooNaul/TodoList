@@ -271,12 +271,13 @@ input:focus {
 				<h2> 등급 ${member.ranking }</h2>
 				<span><a href="/todolist/list">일반 할일</a></span>
 				<span><a href="/todolist/listChall">챌린지 할일</a></span>
+				<span><a href="/member/mypage">마이 페이지</a></span>
 	                    <div class="gnb_logout_button">
                         <ul><li><a id="gnb_logout_button">로그아웃</a></li></ul>
                     </div>
                     </c:if>
 <ul>
-<li><a href="/member/mypage">마이 페이지</a></li>
+
 </ul>
 </div>
 <script>
