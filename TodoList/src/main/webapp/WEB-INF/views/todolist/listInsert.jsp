@@ -22,7 +22,7 @@ $(document).ready(function(){
 		 
 	        $.ajax({
 	            type : 'post',
-	            url : 'todolist/listInsert',
+	            url : '/todolist/listInsert',
 	            data : formValues,
 	            dataType : 'json',
 	            error: function(xhr, status, error){

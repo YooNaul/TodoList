@@ -93,7 +93,7 @@
     });
     
     /* 초기페이지를 todolist/list.jsp로드 */
-    $(".contents").load('todolist/list');
+    $(".contents").load('/todolist/list');
     $(".page-title").html("메인");
     $(".header-contents i").addClass("fi-rr-home");
    
@@ -114,16 +114,16 @@
     		$pageIcon.addClass("fi fi-rr-home");
     		break;
     	case 1 :
-    		$contents.load("todolist/listChall");
+    		$contents.load("/todolist/listChall");
     		$pageTitle.html("나의 챌린지");
     		$pageIcon.addClass("fi fi-rr-trophy");
     		break;
     	case 2 :
     		$(".list-up").addClass("on");
-    		$(".list-up").load("todolist/listInsert");
+    		$(".list-up").load("/todolist/listInsert");
     		break;
     	case 3 :
-    		$contents.load("member/mypage");
+    		$contents.load("/member/mypage");
     		$pageTitle.html("마이페이지");
     		$pageIcon.addClass("fi fi-rr-user-add");
     		break;
