@@ -10,7 +10,7 @@
 </head>
 <body>
 <h2>마이페이지입니다.</h2>
-<h2>니 이름 : ${member.id }</h2>
+<h2>니 이름 : ${member.name }</h2>
 <h2>니 회원가입 날짜 : <fmt:formatDate value="${member.joinDate}" pattern="yyyy-MM-dd hh:MM:ss"/></h2>
 <h2>니 등급 : ${member.ranking }</h2>
 <h2>니 성별 : ${member.sex }</h2>
