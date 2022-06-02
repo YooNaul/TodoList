@@ -15,10 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.todolist.model.TodoListVO;
@@ -32,7 +34,7 @@ import com.todolist.service.TodoListServiceImpl;
 @RequestMapping(value = "/todolist")
 public class TodoListController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(TodoListController.class);
 	
 	private SqlSession sqlSession;
 	
@@ -126,10 +128,29 @@ public class TodoListController {
 		
 	}
 	
-	@RequestMapping(value="update", method = RequestMethod.POST)
-	public void updatePOST(@RequestParam("idx") int idx){
-		logger.info("할일수정 페이지 진입");
+	@RequestMapping(value="/listUpdate", method = RequestMethod.GET)
+	public void updateGET(@RequestParam("idx") int idx, Model model) throws Exception {
 		
+		logger.info("update페이지 진입");
+		
+		model.addAttribute("pageInfo", todolistservice.getPage(idx));
+		
+	}
+	
+	@RequestMapping(value="/listUpdate.do", method = RequestMethod.POST)
+	public String updatePOST(@RequestParam("idx") int idx, TodoListVO list, HttpSession session) throws Exception{
+		
+		String id = (String)session.getAttribute("id");
+		
+		logger.info("할일 수정페이지 진입");
+		
+		list.setIdx(idx);
+		list.setId(id);
+		
+		todolistservice.list_update(list);
+		
+		
+		return "/main";
 		
 	}
 

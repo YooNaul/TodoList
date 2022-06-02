@@ -23,5 +23,7 @@ public interface TodoListService {
     
     //할일 수정
     public void list_update(TodoListVO list) throws Exception;
+    
+    public TodoListVO getPage(int idx) throws Exception;
 	
 }
