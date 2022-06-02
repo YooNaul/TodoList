@@ -18,8 +18,16 @@
 	
 	</insert>
 	
+	<!-- 할일 조회 -->
+	<select id="getPage" resultType="com.todolist.model.TodoListVO">
+		
+        select * from todolist where idx = #{idx}
+    
+	</select>
+	
+	
 	<!-- 할일 수정하기 -->
-	<update id="list_Update">
+	<update id="list_update">
 	
 		update todolist set detail = #{detail}, complDate = #{complDate} where id = #{id} and idx = #{idx}
 	
@@ -39,11 +47,14 @@
 	
 	</update>
 	
+	
 	<!-- 포기버튼 클릭 -->
 	<update id="list_giveup">
 	
 		update todolist set failStatus = 2 where failStatus = 0 and idx = #{idx}
 	
 	</update>
+	
+	
 
 </mapper>

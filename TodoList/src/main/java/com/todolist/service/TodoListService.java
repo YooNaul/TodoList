@@ -20,5 +20,10 @@ public interface TodoListService {
     
     //포기버튼 클릭
     public void list_giveup(int idx) throws Exception;
+    
+    //할일 수정
+    public void list_update(TodoListVO list) throws Exception;
+    
+    public TodoListVO getPage(int idx) throws Exception;
 	
 }

@@ -5,10 +5,13 @@ import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.todolist.controller.TodoListController;
 import com.todolist.mapper.TodoListMapper;
 import com.todolist.model.MemberVO;
 import com.todolist.model.TodoListVO;
@@ -18,6 +21,8 @@ import com.todolist.service.TodoListService;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 public class TodoListServiceTests {
+	
+	private static final Logger logger = LoggerFactory.getLogger(TodoListServiceTests.class);
 	
     @Autowired
     private TodoListService service;
@@ -58,12 +63,32 @@ public class TodoListServiceTests {
 //        
 //    }
 
-    @Test
-    public void list_timeout() throws Exception{
-    	
-    	service.list_timeout();
-    }
+//    @Test
+//    public void list_timeout() throws Exception{
+//    	
+//    	service.list_timeout();
+//    }
+////    
+//    @Test
+//    public void testUpdate() throws Exception {
+//    	
+//    	TodoListVO list = new TodoListVO();
+//    	list.setDetail("수정완료!");
+//    	list.setComplDate("2099-10-10 10:10:10");
+//    	list.setId("test");
+//    	list.setIdx(1);
+//    	
+//    	service.list_update(list);
+//    	
+//    	
+//    }
     
+    	@Test 
+    	public void testGetPage() {
+    		int bno = 8;
+    		
+    		logger.info(""+ mapper.getPage(bno));
+    	}
     
 }
     

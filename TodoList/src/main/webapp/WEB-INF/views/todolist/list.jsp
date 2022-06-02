@@ -22,6 +22,7 @@
          			<td><c:out value="${list.challStatus}"></c:out> </td>
          			<td><c:out value="${list.failStatus}"></c:out> </td>
          		
+<<<<<<< HEAD
          			<td><a href="/todolist/listUpdate?idx=${list.idx }">수정</a></td>
          		-->	
          	
@@ -30,6 +31,13 @@
          				<li> <a href="/todolist/giveup?idx=${list.idx }">삭제</a></li>
          				<li> <a  class="close_mod">취소</a></li>
          		</div>		
+=======
+         			<td></td>
+         		-->		
+         				<a href="/todolist/listUpdate?idx=${list.idx }">수정</a>
+         				<a href="/todolist/success?idx=${list.idx }">성공</a>
+         				<a href="/todolist/giveup?idx=${list.idx }">삭제</a>			
+>>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
          		</ul>
          		</c:forEach>
          		 

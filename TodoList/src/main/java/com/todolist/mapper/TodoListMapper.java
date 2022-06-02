@@ -16,5 +16,9 @@ public interface TodoListMapper {
 	
 	public void list_giveup(int idx);
 	
+	public void list_update(TodoListVO list);
+	
+	public TodoListVO getPage(int idx);
+	
 
 }

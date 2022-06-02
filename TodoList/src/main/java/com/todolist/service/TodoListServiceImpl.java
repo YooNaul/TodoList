@@ -48,5 +48,18 @@ public class TodoListServiceImpl implements TodoListService {
 		
 	}
 	
+	@Override
+	public void list_update(TodoListVO list) throws Exception {
+
+		todolistmapper.list_update(list);
+	}
+	
+	@Override
+	public TodoListVO getPage(int idx) throws Exception {
+		
+		return todolistmapper.getPage(idx);
+		
+	}
+	
 	
 }
