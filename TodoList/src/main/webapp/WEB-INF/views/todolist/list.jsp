@@ -10,7 +10,6 @@
 <body>
 <style>
 @import url(./resources/css/style.css);
-
 </style>
 
 <div class="author_table_wrap">
