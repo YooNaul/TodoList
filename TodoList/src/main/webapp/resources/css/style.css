@@ -3,5 +3,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap");
 @import url("layout/header.css");
 @import url("layout/frame.css");
-
+@import url("pages/list.css");
+@import url("pages/listinsert.css");
 
