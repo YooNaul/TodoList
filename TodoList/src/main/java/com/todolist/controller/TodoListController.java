@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.todolist.model.TodoListVO;
+import com.todolist.service.MemberService;
 import com.todolist.service.TodoListService;
 import com.todolist.service.TodoListServiceImpl;
 
@@ -37,7 +38,10 @@ public class TodoListController {
 	@Autowired
 	private TodoListService todolistservice;
 	
-	//할일 리스트뽑아주기
+	@Autowired
+	private MemberService memberservice;
+	
+	//할일 리스트뽑아주기(일반할일)
 	@RequestMapping(value="list", method=RequestMethod.GET)
 	public void todoList(TodoListVO list, Model model, HttpServletRequest request, HttpSession session) throws Exception {
 		
@@ -53,7 +57,7 @@ public class TodoListController {
 
 	}
 	
-	//할일 리스트뽑아주기
+	//할일 리스트뽑아주기(챌린지)
 	@RequestMapping(value="listChall", method=RequestMethod.GET)
 	public void todoListChall(TodoListVO list, Model model, HttpServletRequest request, HttpSession session) throws Exception {
 		
@@ -80,9 +84,13 @@ public class TodoListController {
 	
 	//할일 등록
 	@RequestMapping(value="/listInsert", method = RequestMethod.POST)
-    public String todoList_Insert(TodoListVO list, RedirectAttributes rttr) throws Exception{
+    public String todoList_Insert(TodoListVO list, RedirectAttributes rttr, HttpSession session) throws Exception{
+		
+		String id = (String)session.getAttribute("id");
 		
 		logger.info("/listInsert 진입");
+		
+		list.setId(id);
 		
 		todolistservice.list_insert(list);
 		
@@ -91,7 +99,12 @@ public class TodoListController {
     }
 	
 	@RequestMapping(value="/success", method = RequestMethod.GET)
-	public String success(@RequestParam("idx") int idx) throws Exception{
+	public String success(@RequestParam("idx") int idx, HttpSession session) throws Exception{
+		
+		String id = (String)session.getAttribute("id");
+		
+		memberservice.listSucssessRanking(id);
+		
 		logger.info("success 페이지 진입");
 		
 		todolistservice.list_sucssess(idx);

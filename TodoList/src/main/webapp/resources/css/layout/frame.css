@@ -46,4 +46,19 @@ body {
     display: none; /* Chrome, Safari, Opera*/
 }
 
+.nav-bar {height:10vh; position:relative; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;}
+.nav-bar > ul {margin:0 !important; padding:0 !important;}
+.nav-bar > ul > li {width:20%; height:100%; float:left}
+.nav-bar ul li {
+	display: flex;
+    font-size: 1.7rem;
+    justify-content: space-around;
+    align-items: center;
+    color:#424242
+    }
+.nav-bar > ul > li > i.on {color:#5B89FF}
+.list-up {width:100%; height:350px; background:red; position:absolute; transform: translateY(350px); transition:all 0.5s}
+.list-up.on {transform: translateY(-250px);}
+
+
 /*# sourceMappingURL=style.css.map */

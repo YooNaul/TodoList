@@ -15,27 +15,23 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void memberJoin(MemberVO member) throws Exception {
-		
 		membermapper.memberJoin(member);
 		
 	}
 	@Override
 	public int idCheck(String memberId) throws Exception {
-		
 		return membermapper.idCheck(memberId);
 	}
 
     /* 로그인 */
     @Override
     public MemberVO memberLogin(MemberVO member) throws Exception {
-        
         return membermapper.memberLogin(member);
     }
     
     //정보수정
     @Override
     public void editMember(MemberVO member) throws Exception {
-
     	membermapper.editMember(member);
     }
     
@@ -43,7 +39,11 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void deleteMember(MemberVO member) throws Exception {
     	membermapper.deleteMember(member);
-    	
+    }
+    
+    @Override
+    public void listSucssessRanking(String memberId) throws Exception {
+    	membermapper.listSucssessRanking(memberId);
     }
  
 }

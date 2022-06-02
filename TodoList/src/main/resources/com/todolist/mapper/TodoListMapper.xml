@@ -14,7 +14,7 @@
 	<!-- 할일 등록하기 -->
 	<insert id="list_insert">
 	
-		insert into todolist (id, detail, regidate, COMPLDATE, failStatus, challStatus) values ('test', #{detail}, now(), now(), 0, #{challStatus})
+		insert into todolist (id, detail, regidate, COMPLDATE, failStatus, challStatus) values (#{id}, #{detail}, now(), #{complDate}, 0, #{challStatus})
 	
 	</insert>
 	
