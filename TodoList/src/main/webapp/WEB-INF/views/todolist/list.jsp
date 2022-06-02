@@ -19,8 +19,9 @@
          			<td><c:out value="${list.challStatus}"></c:out> </td>
          			<td><c:out value="${list.failStatus}"></c:out> </td>
          		
-         			<td><a href="/todolist/listUpdate?idx=${list.idx }">수정</a></td>
-         		-->	
+         			<td></td>
+         		-->		
+         				<a href="/todolist/update?idx=${list.idx }">수정</a>
          				<a href="/todolist/success?idx=${list.idx }">성공</a>
          				<a href="/todolist/giveup?idx=${list.idx }">삭제</a>			
          		</ul>

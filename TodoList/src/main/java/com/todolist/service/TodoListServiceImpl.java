@@ -48,5 +48,11 @@ public class TodoListServiceImpl implements TodoListService {
 		
 	}
 	
+	@Override
+	public void list_update(TodoListVO list) throws Exception {
+
+		todolistmapper.list_update(list);
+	}
+	
 	
 }

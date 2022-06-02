@@ -64,7 +64,7 @@ public class TodoListController {
 		
 		String id = (String)session.getAttribute("id");
 		
-		System.out.println(id);
+		//System.out.println(id);
 		
 		list.setChallStatus(0);
 		list.setId(id);
@@ -122,6 +122,13 @@ public class TodoListController {
 		todolistservice.list_giveup(idx);
 		
 		return "/main";
+		
+		
+	}
+	
+	@RequestMapping(value="update", method = RequestMethod.POST)
+	public void updatePOST(@RequestParam("idx") int idx){
+		logger.info("할일수정 페이지 진입");
 		
 		
 	}
