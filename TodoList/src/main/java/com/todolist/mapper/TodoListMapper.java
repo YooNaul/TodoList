@@ -20,5 +20,7 @@ public interface TodoListMapper {
 	
 	public TodoListVO getPage(int idx);
 	
+	public void deleteMemberList(String id);
+	
 
 }

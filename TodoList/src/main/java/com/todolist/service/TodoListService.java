@@ -25,5 +25,7 @@ public interface TodoListService {
     public void list_update(TodoListVO list) throws Exception;
     
     public TodoListVO getPage(int idx) throws Exception;
+    
+    public void deleteMemberList(String id) throws Exception;
 	
 }
