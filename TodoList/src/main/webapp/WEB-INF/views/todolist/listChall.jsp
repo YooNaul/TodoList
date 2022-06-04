@@ -21,7 +21,7 @@
          		<div>
          		
          		<c:out value="${list.detail}"></c:out><br/>
-         		<fmt:formatDate value="${list.regiDate}" pattern="yyyy.MM.dd"/>-<c:out value="${list.complDate}"></c:out>
+         		<c:out value="${list.regiDate}"></c:out>-<c:out value="${list.complDate}"></c:out>
          		</div>
          		<div class="chall-percent">
          		
@@ -30,7 +30,7 @@
          		게이지바 들어갈곳~
          		</div>
          		<!--  	
-         			<td><fmt:formatDate value="${list.regiDate}" pattern="yyyy-MM-dd HH:MM:ss"/></td>
+         			<td><value="${list.regiDate}"/></td>
          			<td><c:out value="${list.complDate}"></c:out></td>
          			<td><c:out value="${list.challStatus}"></c:out> </td>
          			<td><c:out value="${list.failStatus}"></c:out> </td>
@@ -49,9 +49,10 @@
  	var stDateT = ("${list.regiDate}"); /* jstl 시작날짜  */
 	var enDateString = ("${list.complDate}"); /* jstl 끝날짜 */
 	var enDatePrs = enDateString.substr(0,10); /* 끝날짜 문자열 데이터처리 */
+	var enDatePrs = enDateString.substr(0,10); /* 끝날짜 문자열 데이터처리 */
 	
 	
-	var stDate = new Date("2022-06-03"); /* 시작날짜 더미데이터 */
+	var stDate = new Date(enDatePrs); /* 시작날짜 더미데이터 */
 	var enDate = new Date(enDatePrs); /* 종료날짜 더미데이터 */
 	  
 	var diffDate = stDate.getTime() - enDate.getTime();  /* 시작날짜 - 끝날짜 */

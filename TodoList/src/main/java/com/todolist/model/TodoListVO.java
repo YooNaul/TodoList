@@ -10,7 +10,7 @@ public class TodoListVO {
 	private int idx;
 	private String id;
 	private String detail;
-	private Date regiDate;
+	private String regiDate;
 	private String complDate;
 	private int failStatus;
 	private int challStatus;
