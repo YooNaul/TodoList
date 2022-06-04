@@ -56,8 +56,12 @@ public class TodoListServiceImpl implements TodoListService {
 	
 	@Override
 	public TodoListVO getPage(int idx) throws Exception {
-		
 		return todolistmapper.getPage(idx);
+	}
+	
+	@Override
+	public void deleteMemberList(String id) throws Exception {
+		todolistmapper.deleteMemberList(id);
 		
 	}
 	

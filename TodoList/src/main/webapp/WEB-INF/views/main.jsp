@@ -4,8 +4,8 @@
 <html>
 <head>
 <style type="text/css">
-@import url(/resources/css/layout/frame.css);
-@import url(/resources/css/layout/header.css);
+@import url(/resources/css/style.css);
+
 </style>
 	<title>Home</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -35,11 +35,11 @@
 	 </div>
 	 </header>
          <div class="contents">
-             <!--   <c:if test = "${member == null }">
+         <!--    <c:if test = "${member == null }">
                     <div class="login_button"><a href="/member/login">로그인</a></div>
                     <span><a href="/member/join">회원가입</a></span>                
-                </c:if>    --> 
-                
+                </c:if>    
+                 -->
                 <!-- 로그인한 상태 -->
               <!--    <c:if test="${ member != null }">
                 <h2> 아이디: ${member.id }</h2>
@@ -79,6 +79,7 @@
 
 
 <script>
+$(document).ready(function(){
     /* gnb_area 로그아웃 버튼 작동 */
     $("#gnb_logout_button").click(function(){
         //alert("로그아웃 버튼 테스트");
@@ -106,8 +107,8 @@
      	 $(".nav-bar ul li i").removeClass("on");
      	$(this).find("i").addClass("on");
      	$pageIcon.removeClass();
+     	
     	switch($currentPage){
-    	
     	case 0 :
     		$contents.load("/todolist/list");
     		$pageTitle.html("메인");
@@ -133,8 +134,28 @@
     		$pageIcon.addClass("fi fi-rr-user-add");
     		break;
     	}
-     	
+     		
+    	<c:if test = "${member == null }">
+    	alert("로그인 해주세요");
+    	location.href="/member/login";
+        </c:if>    
+        
+        if(document.querySelector(".list-up").classList.contains("on")) {
+        	document.querySelector("#root").classList.add("on");
+        	$(".container").not(".list-up").click(function(){
+        		$(".list-up").removeClass("on");
+        		$("#root").removeClass("on");
+        	})
+        } else {
+        	document.querySelector("#root").classList.remove("on");
+        }
+        
+        
     })
+    
+  
+    
+})
 </script>
 </body>
 </html>

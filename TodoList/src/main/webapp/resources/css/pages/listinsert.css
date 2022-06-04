@@ -1,0 +1,147 @@
+/* 리스트업box 디자인 */
+	.list-up {
+	width:100%; 
+	height:350px; 
+	background:#ffffff; 
+	position:absolute; 
+	transform: translateY(350px); 
+	transition:all 0.5s;
+	border-radius:20px;
+	}
+	.list-up.on {transform: translateY(-260px);}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  vertical-align:middle;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  height:30px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+p {
+	margin:0px;
+	display:inline-block;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#challStatus {
+	width:0;
+	height:0 !important;
+	margin:0;
+	padding:0;
+	position:absolute;
+}
+
+#listInsertForm {
+	display: flex;
+    flex-direction: column;
+	padding:10px;
+	height: 280px;
+    justify-content: space-around;
+}
+
+#listInsertForm div {
+	position:relative;
+	height:30px;
+	margin:5px;
+}
+
+
+
+.form_section_date {
+	background:#ccc;
+	position:relative;
+	height:35px;
+	width:150px;
+	border-radius:20px;
+	color:#fff;
+}
+
+#daySelector {
+	border:none;
+	background:none;
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform:translate(-50%, -50%);
+}
+
+.form_section_memo {
+	height:40px;
+	border-bottom:1px solid #D8D8D8
+}
+
+.form_section_memo input {
+	position:absolute;
+	width:100%;
+	height:100%;
+	border:none;
+	background:none;
+	outline: none;
+}
+
+.btn_section {
+		text-align:center;
+}
+
+.btn_section i {
+	font-size:2.5rem;
+	color:#5B89FF;
+}
+
+
+

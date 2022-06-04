@@ -27,6 +27,12 @@ body {
   margin: 0 auto;
   height: 100vh;
   border : 1px solid lightgray;
+    position:relative;
+    
+}
+
+#root.on {
+	background:rgba(0,0,0,0.4);
 }
 
 #root .container .wrap {
@@ -35,7 +41,7 @@ body {
   margin: 0 auto;
 }
 
-/* ÄÁÅÙÃ÷ */
+/* ì»¨í…ì¸  */
 .contents {width:100%; height:80vh; overflow-y:scroll;}
 
 .contents {
@@ -57,8 +63,7 @@ body {
     color:#424242
     }
 .nav-bar > ul > li > i.on {color:#5B89FF}
-.list-up {width:100%; height:350px; background:red; position:absolute; transform: translateY(350px); transition:all 0.5s}
-.list-up.on {transform: translateY(-250px);}
+
 
 
 /*# sourceMappingURL=style.css.map */

@@ -55,6 +55,13 @@
 	
 	</update>
 	
+	<!-- 회원탈퇴시 모든 데이터 삭제 -->
+	<delete id="deleteMemberList">
+	
+		delete from todolist where id = #{id}
+		
+	</delete>
+	
 	
 
 </mapper>
