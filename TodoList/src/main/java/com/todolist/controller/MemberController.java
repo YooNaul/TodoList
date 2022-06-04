@@ -25,7 +25,6 @@ import com.todolist.model.TodoListVO;
 import com.todolist.service.MemberService;
 import com.todolist.service.TodoListService;
 
-
 @Controller
 @RequestMapping(value = "/member")
 public class MemberController {

@@ -43,46 +43,17 @@
       	       </ul>       			
          </div>                    
 <script>
- 	function calcDay() {
- 	let list = new Array();
- 	<c:forEach items="${list}" var="list">
- 	var stDateT = ("${list.regiDate}"); /* jstl 시작날짜  */
-	var enDateString = ("${list.complDate}"); /* jstl 끝날짜 */
-	var enDatePrs = enDateString.substr(0,10); /* 끝날짜 문자열 데이터처리 */
-	
-	
-	var stDate = new Date("2022-06-03"); /* 시작날짜 더미데이터 */
-	var enDate = new Date(enDatePrs); /* 종료날짜 더미데이터 */
-	  
-	var diffDate = stDate.getTime() - enDate.getTime();  /* 시작날짜 - 끝날짜 */
-	
-	var dateDays = Math.abs(diffDate / (1000 * 3600 * 24)); /* 시작날짜와 종료날짜 사이의 날짜계산 */
-	
-	var today = new Date().toISOString().substring(0,10); /* 오늘날짜 */
-	var nowDate = new Date(today); /* 오늘날짜 데이트 객체 */
-	
-	var ProgressDate =    stDate.getTime() -  nowDate.getTime() ;
-	var dateDays2 = Math.abs(ProgressDate / (1000 * 3600 * 24));
-	
-	var progressResult = dateDays2  / (dateDays + 1)  * 100;
-	
-	list.push(progressResult);
- 	</c:forEach>
- 	
- 	setPercent(list)
+ 	class conversionDate {
+ 		constructor(Date) {
+ 			this.Date = Date;
+ 		}
+ 		getDate : function(Date) {
+ 			return Date;
+ 		}
  	}
- 	calcDay();
- 
- 	/* 계산된 퍼센트data 태그입력 */
- 	function setPercent(list) {
-  var challPer = document.querySelectorAll(".chall-percent");
-  challPer.forEach(function(ele, idx){
-	  ele.innerHTML=list[idx]+"%";
-  })
- 	}
+ 	var a1 = new conversionDate();
  	
- 	
- 	
+ 	console.log(a1.getDate("2022")); 
 </script>
 </body>
 </html>
