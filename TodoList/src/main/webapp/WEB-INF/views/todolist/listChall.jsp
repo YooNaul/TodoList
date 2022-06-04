@@ -2,15 +2,40 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+<style type="text/css">
 </head>
-<body>
 <style>
 @import url(./resources/css/style.css);
+@import url(/resources/css/jquery/progressbar.css);
+
+
 </style>
+<style>
+.wrap-progress-bar {
+position:relative;
+	width:100%;
+	
+	height:25px;
+	background:#EEEEEE;
+	border-radius:20px;
+	overflow:hidden;
+}
+
+.progress-gage {
+	height:100%;
+	background:#5B89FF;
+	border-radius:20px;
+	
+}
+</style>
+<body>
+
 <div class="author_table_wrap">
              	
              	
@@ -21,16 +46,18 @@
          		<div>
          		
          		<c:out value="${list.detail}"></c:out><br/>
-         		<fmt:formatDate value="${list.regiDate}" pattern="yyyy.MM.dd"/>-<c:out value="${list.complDate}"></c:out>
+         		 
+<c:out value="${fn:substring(list.regiDate,0,10)}"></c:out>-<c:out value="${fn:substring(list.complDate,0,10)}"></c:out>
+         		
          		</div>
          		<div class="chall-percent">
          		
          		</div>
-         		<div>
-         		게이지바 들어갈곳~
+         		<div class="wrap-progress-bar">
+         	<div class="progress-gage"></div>
          		</div>
          		<!--  	
-         			<td><fmt:formatDate value="${list.regiDate}" pattern="yyyy-MM-dd HH:MM:ss"/></td>
+         		
          			<td><c:out value="${list.complDate}"></c:out></td>
          			<td><c:out value="${list.challStatus}"></c:out> </td>
          			<td><c:out value="${list.failStatus}"></c:out> </td>
@@ -42,18 +69,43 @@
          		</c:forEach>
       	       </ul>       			
          </div>                    
-<script>
- 	class conversionDate {
- 		constructor(Date) {
- 			this.Date = Date;
- 		}
- 		getDate : function(Date) {
- 			return Date;
- 		}
+<script type="module">
+import { conversionDateFormat,  calcBetweenDay } from '/resources/js/module.js';
+
+var list = new Array();
+<c:forEach items="${list}" var="list">
+
+var today = new Date();
+var stDate = conversionDateFormat('${list.regiDate}'); // 시작날짜 더미데이터
+var enDate = conversionDateFormat('${list.complDate}');
+
+
+
+var perriodDay = Math.floor(calcBetweenDay(stDate, enDate) + 1 ); // 전체기간
+var perriodDay2  = Math.floor(calcBetweenDay(stDate, today) + 1 ); // 시작날 ~ 현재날 사이의 일수
+
+var result = ( perriodDay2 / perriodDay ) * 100;
+
+list.push(Math.floor(result));
+
+</c:forEach>
+
+	function setPercent(list) {
+  var challPer = document.querySelectorAll(".chall-percent");
+  challPer.forEach(function(ele, idx){
+	  ele.innerHTML=list[idx]+"%";
+
+	 let progrees =  ele.nextSibling.nextElementSibling.children[0];
+	 progrees.style.width=list[idx]+"%"; 
+
+  })
  	}
- 	var a1 = new conversionDate();
- 	
- 	console.log(a1.getDate("2022")); 
+
+setPercent(list);
+
+
 </script>
+
+
 </body>
 </html>

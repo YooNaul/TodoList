@@ -239,6 +239,8 @@ public class MemberController {
 	@RequestMapping(value="/deleteMember", method= RequestMethod.POST)
 	public String deleteMemberPOST(HttpSession session, MemberVO vo, RedirectAttributes rttr) throws Exception{
 		
+		String id = (String)session.getAttribute("id");
+		
 		MemberVO member = (MemberVO)session.getAttribute("member");
 		
 		String origPass = member.getPass(); 
@@ -250,6 +252,7 @@ public class MemberController {
 		}
 		
 		memberservice.deleteMember(member);
+		todolistservice.deleteMemberList(id);
 		session.setAttribute("pass", null);
 		
 		session.invalidate();

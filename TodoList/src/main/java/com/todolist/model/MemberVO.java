@@ -14,7 +14,7 @@ public class MemberVO {
 	private String email;
 	private int status;
 	private int ranking;
-	private Date joinDate;
+	private String joinDate;
 	@Override
 	public String toString() {
 		return "MemberVO [idx=" + idx + ", id=" + id + ", name=" + name + ", pass=" + pass + ", sex=" + sex + ", email="
