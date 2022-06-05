@@ -7,8 +7,8 @@
 	<!-- 할일 목록 보기 -->
 	<select id="list_select" resultType="com.todolist.model.TodoListVO">
 	
-		select idx, detail, regiDate, complDate, challStatus, failStatus from todolist where failStatus = 3 or 
-		(failStatus = 0 and id = #{id} and challStatus = #{challStatus}) order by failStatus=3 desc, idx desc
+		select idx, detail, regiDate, complDate, challStatus, failStatus from todolist where (failStatus = 0 or failStatus = 3)
+			and id = #{id} and challStatus = #{challStatus} order by failStatus=3 desc, idx desc
 	</select>
 	
 	<!-- 할일 등록하기 -->
@@ -40,10 +40,11 @@
 	]]>
 	</update>
 	
+	
 	<!-- 성공버튼 클릭 -->
 	<update id="list_sucssess">
 	
-		update todolist set failStatus = 1 where failStatus = 0 and idx = #{idx}
+		update todolist set failStatus = 1 where failStatus = 0 or 3 and idx = #{idx}
 	
 	</update>
 	
@@ -51,9 +52,10 @@
 	<!-- 포기버튼 클릭 -->
 	<update id="list_giveup">
 	
-		update todolist set failStatus = 2 where failStatus = 0 and idx = #{idx}
+		update todolist set failStatus = 2 where failStatus = 0 or 3 and idx = #{idx}
 	
 	</update>
+	
 	
 	<!-- 회원탈퇴시 모든 데이터 삭제 -->
 	<delete id="deleteMemberList">
@@ -62,6 +64,21 @@
 		
 	</delete>
 	
+	<select id="mypageTodoChallInfo" resultType="Integer">
+  	
+  		select count(challStatus) from todolist where id = #{id}
+  	
+  	</select>
+  	
+  	<select id="mypageTodoFailInfo" resultType="Integer">
+  	
+  		select count(case when failStatus = 1 then 1 end) from todolist where id = #{id}
+  	
+  	</select>
+  	
+  	
+  	
+  	
 	
 
 </mapper>

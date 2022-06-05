@@ -58,28 +58,27 @@ position:relative;
 }
 </style>
 <body>
-
+	
 <div class="author_table_wrap">
              	
              	
              	
              	<ul>
              		<c:forEach items="${list}" var="list">
+             		<a href="/todolist/popUp?idx=${list.idx }">
          		<li class="list-box" style="margin-bottom:10px">
          		<div>
          		
          		<c:out value="${list.detail}"></c:out><br/>
-
          		 
 <c:out value="${fn:substring(list.regiDate,0,10)}"></c:out>-<c:out value="${fn:substring(list.complDate,0,10)}"></c:out>
          		
 
          
-
+					
          		</div>
          		<div class="chall-percent">
-         		<a href="/todolist/success?idx=${list.idx }">성공</a>
-         		<a href="/todolist/giveup?idx=${list.idx }">삭제</a>
+         		
          		</div>
          		<div class="wrap-progress-bar">
          	<div class="progress-gage"></div>
@@ -95,7 +94,7 @@ position:relative;
          			<td><a href="/todolist/success?idx=${list.idx }">성공</a></td>
          			<td><a href="/todolist/giveup?idx=${list.idx }">삭제</a></td>
          		-->
-         		</li>
+         		</li></a>
          		</c:forEach>
       	       </ul>       			
          </div>                    

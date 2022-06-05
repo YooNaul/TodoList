@@ -37,6 +37,8 @@
 <span>${member.name } 님</span><br/>
 <span>todo 사용한지 <b id="join-date"></b> 일쨰</span><br/>
 <span>목표 달성률은 <b></b>% 입니다.</span>
+<span>니 실패횟수 : ${fail }</span>
+<span>니 챌린지 전체 도전 횟수 : ${chall }</span>
 </div>
 </div>
 

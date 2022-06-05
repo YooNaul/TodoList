@@ -20,6 +20,6 @@ public interface MemberMapper {
     public void deleteMember(MemberVO member);
     
     //일반 할일 성공시 랭킹 증가
-    public void listSucssessRanking(String memberId);
+    public int listSucssessRanking(String memberId);
     
 }

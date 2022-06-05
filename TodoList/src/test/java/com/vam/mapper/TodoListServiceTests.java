@@ -82,13 +82,28 @@ public class TodoListServiceTests {
 //    	
 //    	
 //    }
-    
-    	@Test 
-    	public void testGetPage() {
-    		int bno = 8;
-    		
-    		logger.info(""+ mapper.getPage(bno));
-    	}
+//    
+//    	@Test 
+//    	public void testGetPage() {
+//    		int bno = 8;
+//    		
+//    		logger.info(""+ mapper.getPage(bno));
+//    	}
+//    @Test
+//    public void testMypage() {
+//    	try {
+//    		
+//    		String aaa = "test";
+//    		
+//    		int lists = service.mypageTodoInfo(aaa);
+//			
+//    		logger.info("니 값 : "+service.mypageTodoInfo(aaa));
+//    	
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//    }
     
 }
     

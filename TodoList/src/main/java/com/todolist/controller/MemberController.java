@@ -160,7 +160,6 @@ public class MemberController {
             return "redirect:/member/login";
             
         }
-        http://localhost:8080/member/logout.do
         session.setAttribute("member", lvo);             // 일치하는 아이디, 비밀번호 경우 (로그인 성공)
         session.setAttribute("id", member.getId());
         session.setAttribute("name", member.getName());
@@ -202,10 +201,13 @@ public class MemberController {
 		  
 		  session.getAttribute("id");
 		  
-		  list.setId(id);
 		  
-		  List lists = todolistservice.list_select(list);
-		  model.addAttribute("list", lists);
+		  int chall = todolistservice.mypageTodoChallInfo(id);
+		  int fail = todolistservice.mypageTodoFailInfo(id);
+		  
+		  model.addAttribute("chall", chall);
+		  model.addAttribute("fail", fail);
+		  
 	  }
 	 
 	 //회원 정보 수정 페이지 진입

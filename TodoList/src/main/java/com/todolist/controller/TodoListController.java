@@ -36,8 +36,6 @@ public class TodoListController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(TodoListController.class);
 	
-	private SqlSession sqlSession;
-	
 	@Autowired
 	private TodoListService todolistservice;
 	
@@ -58,6 +56,7 @@ public class TodoListController {
 		List lists = todolistservice.list_select(list);
 		model.addAttribute("list", lists);
 
+		
 	}
 	
 	//할일 리스트뽑아주기(챌린지)
@@ -153,6 +152,13 @@ public class TodoListController {
 		return "/main";
 		
 	}
-
+	
+	@RequestMapping(value="/popUp", method = RequestMethod.GET)
+	public void popUp(@RequestParam("idx") int idx, Model model) throws Exception{
+		
+		logger.info("성공실패 팝업창 진입");
+		
+		model.addAttribute("list", todolistservice.getPage(idx));
+	}
 	
 }

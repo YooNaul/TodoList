@@ -22,5 +22,9 @@ public interface TodoListMapper {
 	
 	public void deleteMemberList(String id);
 	
+	public int mypageTodoChallInfo(String id);
+	
+	public int mypageTodoFailInfo(String id);
+	
 
 }

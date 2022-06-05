@@ -65,5 +65,13 @@ public class TodoListServiceImpl implements TodoListService {
 		
 	}
 	
+	@Override
+	public int mypageTodoChallInfo(String id) throws Exception {
+		return todolistmapper.mypageTodoChallInfo(id);
+	}
 	
+	@Override
+	public int mypageTodoFailInfo(String id) throws Exception {
+		return todolistmapper.mypageTodoFailInfo(id);
+	}
 }
