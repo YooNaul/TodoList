@@ -7,8 +7,8 @@
 	<!-- 할일 목록 보기 -->
 	<select id="list_select" resultType="com.todolist.model.TodoListVO">
 	
-		select idx, detail, regiDate, complDate, challStatus, failStatus from todolist where failStatus = 0 and id = #{id} and challStatus = #{challStatus} order by idx desc
-	
+		select idx, detail, regiDate, complDate, challStatus, failStatus from todolist where failStatus = 3 or 
+		(failStatus = 0 and id = #{id} and challStatus = #{challStatus}) order by failStatus=3 desc, idx desc
 	</select>
 	
 	<!-- 할일 등록하기 -->
@@ -36,7 +36,7 @@
 	<!-- 시간지난거 실패처리 -->
 	<update id="list_timeout">
 	<![CDATA[
-		update todolist set failStatus = 2 where failStatus = 0 and compldate <= now(); 
+		update todolist set failStatus = 3 where failStatus = 0 and compldate <= now(); 
 	]]>
 	</update>
 	

@@ -15,6 +15,29 @@
 @import url(/resources/css/jquery/progressbar.css);
 
 
+@import url(/resources/css/jquery/progressbar.css);
+
+
+</style>
+<style>
+.wrap-progress-bar {
+position:relative;
+	width:100%;
+	
+	height:25px;
+	background:#EEEEEE;
+	border-radius:20px;
+	overflow:hidden;
+}
+
+.progress-gage {
+	height:100%;
+	background:#5B89FF;
+	border-radius:20px;
+	
+}
+
+
 </style>
 <style>
 .wrap-progress-bar {
@@ -65,6 +88,9 @@ position:relative;
 
          			<td><value="${list.regiDate}"/></td>
          			<td><c:out value="${list.complDate}"></c:out></td>
+         			<td><c:out value="${list>>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
+.complDate}"></c:out></td>
+>>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
          			<td><c:out value="${list.challStatus}"></c:out> </td>
          			<td><c:out value="${list.failStatus}"></c:out> </td>
          			<td><a href="/todolist/listUpdate?idx=${list.idx }">수정</a></td>
