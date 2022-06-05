@@ -26,8 +26,8 @@ body {
   min-width: 321px;
   margin: 0 auto;
   height: 100vh;
-  border : 1px solid lightgray;
     position:relative;
+    z-index:500;
     
 }
 

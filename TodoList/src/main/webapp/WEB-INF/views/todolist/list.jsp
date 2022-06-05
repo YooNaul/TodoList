@@ -18,34 +18,23 @@
          			<li class="list-box" ><c:out value="${list.detail}"></c:out><span class="mod_btn"><i class="fi fi-rr-menu-dots"></i></span></li>
          		
          	
+         	
          		<div class="mod_box">
          				<li> <a href="/todolist/success?idx=${list.idx }">성공</a></li>
          				<li> <a href="/todolist/giveup?idx=${list.idx }">삭제</a></li>
          				<li> <a  class="close_mod">취소</a></li>
          		</div>		
-=======
-         			<td></td>
-         		-->		
-         				<a href="/todolist/listUpdate?idx=${list.idx }">수정</a>
-         				<a href="/todolist/success?idx=${list.idx }">성공</a>
-         				<a href="/todolist/giveup?idx=${list.idx }">삭제</a>			
->>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
+			
+         			
+         				
+
          		</ul>
          		</c:forEach>
          		 
                      			
          </div>                    
 <script>
-/*
-let arr = new Array();
-<c:forEach items="${list}" var ="list">
-	arr.push("${list.idx}");
-</c:forEach>
 
-for(var value of arr) {
-	console.log(value);
-}
-*/
 
 var modBtn =  document.querySelectorAll(".mod_btn");
 var modBoxs =  document.querySelectorAll(".mod_box");
@@ -57,7 +46,7 @@ modBtn.forEach(function(ele, idx){
 			ele.classList.remove("on");
 		})	
 		var parentLi = this.parentNode.parentNode;
-		var modBox = parentLi.childNodes[5];
+		var modBox = parentLi.childNodes[3];
 		modBox.classList.add("on");
 		
 		var clsBtn = modBox.childNodes[5];
