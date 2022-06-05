@@ -76,7 +76,8 @@ position:relative;
 
          		</div>
          		<div class="chall-percent">
-         		
+         		<a href="/todolist/success?idx=${list.idx }">성공</a>
+         		<a href="/todolist/giveup?idx=${list.idx }">삭제</a>
          		</div>
          		<div class="wrap-progress-bar">
          	<div class="progress-gage"></div>
@@ -86,8 +87,6 @@ position:relative;
          		
 =======
 >>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
-         			<td><c:out value="${list>>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
-.complDate}"></c:out></td>
          			<td><c:out value="${list.challStatus}"></c:out> </td>
          			<td><c:out value="${list.failStatus}"></c:out> </td>
          			<td><a href="/todolist/listUpdate?idx=${list.idx }">수정</a></td>

@@ -33,7 +33,7 @@
 	
 	</update>
 	
-	<!-- 시간지난거 실패처리 -->
+	<!-- 시간지난거 빨갛게처리 -->
 	<update id="list_timeout">
 	<![CDATA[
 		update todolist set failStatus = 3 where failStatus = 0 and compldate <= now(); 
