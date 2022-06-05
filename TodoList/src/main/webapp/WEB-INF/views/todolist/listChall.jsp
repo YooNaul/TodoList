@@ -30,7 +30,6 @@
          		게이지바 들어갈곳~
          		</div>
          		<!--  	
-         			<td><value="${list.regiDate}"/></td>
          			<td><c:out value="${list.complDate}"></c:out></td>
          			<td><c:out value="${list.challStatus}"></c:out> </td>
          			<td><c:out value="${list.failStatus}"></c:out> </td>
