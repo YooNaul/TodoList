@@ -16,26 +16,29 @@
 </head>
 
 <body>
-
+	
 <div class="author_table_wrap">
              	
              	
              	
              	<ul>
              		<c:forEach items="${list}" var="list">
+<<<<<<< HEAD
              		
+=======
+             		<a href="/todolist/popUp?idx=${list.idx }">
+>>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
          		<li class="list-box" style="margin-bottom:10px">
          		
          		<div>
          		
          		<c:out value="${list.detail}"></c:out><br/>
-
          		 
 <c:out value="${fn:substring(list.regiDate,0,10)}"></c:out>-<c:out value="${fn:substring(list.complDate,0,10)}"></c:out>
          		
 
          
-
+					
          		</div>
          		<div class="chall-percent">
          		
@@ -44,19 +47,30 @@
          	<div class="progress-gage"></div>
          		</div>
          		<!--  	
+<<<<<<< HEAD
 
          			<td><value="${list.regiDate}"/></td>
          			<td><c:out value="${list.complDate}"></c:out></td>
          			<td><c:out value="${list.complDate}"></c:out></td>
+=======
+<<<<<<< HEAD
+         		
+>>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
+>>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
+>>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
          			<td><c:out value="${list.challStatus}"></c:out> </td>
          			<td><c:out value="${list.failStatus}"></c:out> </td>
          			<td><a href="/todolist/listUpdate?idx=${list.idx }">수정</a></td>
          			<td><a href="/todolist/success?idx=${list.idx }">성공</a></td>
          			<td><a href="/todolist/giveup?idx=${list.idx }">삭제</a></td>
          		-->
+<<<<<<< HEAD
          	
          		</li>
          		
+=======
+         		</li></a>
+>>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
          		</c:forEach>
       	       </ul>       			
          </div>                    

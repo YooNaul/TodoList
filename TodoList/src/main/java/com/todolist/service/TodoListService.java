@@ -27,5 +27,9 @@ public interface TodoListService {
     public TodoListVO getPage(int idx) throws Exception;
     
     public void deleteMemberList(String id) throws Exception;
+    
+    public int mypageTodoChallInfo(String id) throws Exception;
+    
+    public int mypageTodoFailInfo(String id) throws Exception;
 	
 }
