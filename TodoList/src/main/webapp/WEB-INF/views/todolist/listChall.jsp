@@ -51,7 +51,7 @@ position:relative;
 <c:out value="${fn:substring(list.regiDate,0,10)}"></c:out>-<c:out value="${fn:substring(list.complDate,0,10)}"></c:out>
          		
 
-         		<c:out value="${list.regiDate}"></c:out>-<c:out value="${list.complDate}"></c:out>
+         
 
          		</div>
          		<div class="chall-percent">
@@ -61,11 +61,9 @@ position:relative;
          	<div class="progress-gage"></div>
          		</div>
          		<!--  	
-<<<<<<< HEAD
-         		
-=======
+
+
          			<td><value="${list.regiDate}"/></td>
->>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
          			<td><c:out value="${list.complDate}"></c:out></td>
          			<td><c:out value="${list.challStatus}"></c:out> </td>
          			<td><c:out value="${list.failStatus}"></c:out> </td>
@@ -108,9 +106,9 @@ list.push(Math.floor(result));
 	 progrees.style.width=list[idx]+"%"; 
 
   })
- 	}
+ 	
 
-setPercent(list);
+
 
 
 </script>
