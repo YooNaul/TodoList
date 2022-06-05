@@ -20,7 +20,7 @@
          	
          	
          		<div class="mod_box">
-         				<li> <a href="/todolist/success?idx=${list.idx }">성공</a></li>
+         				<li> <a href="/todolist/success?idx=${list.idx }">완료</a></li>
          				<li> <a href="/todolist/giveup?idx=${list.idx }">삭제</a></li>
          				<li> <a  class="close_mod">취소</a></li>
          		</div>		

@@ -32,3 +32,21 @@
 .mypage-info-emblem {
 	margin-top:20px;
 }
+
+
+
+.info-text {
+	position:relative;
+}
+
+.info-box-frame {
+	width:150px;
+	padding:10px;
+	background:#fff;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	position:absolute;
+	left:18px;
+	top:0px;
+	font-size:0.8rem;
+	font-style: normal;
+}

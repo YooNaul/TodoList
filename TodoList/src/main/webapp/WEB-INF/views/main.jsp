@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
 </head>
 
 
@@ -27,12 +28,22 @@
 
 
 <div id="root">
+
+<div id="notice_box">
+<h5 class="notice_head">${member.name } 님 알림함<i class=" fi fi-rr-cross" id="exit-btn"></i></h5>
+</div>
+
 <div class="container">
 	<div class="wrap">
 	 <header class="header">
 	<div class="header-contents">
 		<i class="fi "></i>&nbsp;&nbsp;<span class="page-title"></span>
+		
 	 </div>
+	 
+	<div id="notice-btn">
+	<i class="fi fi-rr-bell"></i>
+	</div>
 	 </header>
          <div class="contents">
          <!--    <c:if test = "${member == null }">
@@ -153,8 +164,23 @@ $(document).ready(function(){
         
     })
     
-  
     
+})
+</script>
+<script type="module">
+const noticeBtn = document.getElementById("notice-btn");
+const noticeBtnExit = document.getElementById("exit-btn");
+const noticeBox = document.getElementById("notice_box");
+const noticeBoxOverlay = document.getElementById("root");
+
+noticeBtn.addEventListener("click", function(){
+	noticeBox.classList.add("on");
+	noticeBoxOverlay.classList.add("on");
+})
+
+noticeBtnExit.addEventListener("click", function(){
+	noticeBox.classList.remove("on");
+	noticeBoxOverlay.classList.remove("on");
 })
 </script>
 </body>
