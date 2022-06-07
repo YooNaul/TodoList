@@ -34,5 +34,7 @@ class completeCount {
 	}
 }
 
-export { conversionDateFormat, calcBetweenDay, completeCount }
+
+
+export { conversionDateFormat, calcBetweenDay, completeCount}
 

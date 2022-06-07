@@ -1,7 +1,6 @@
 /* 리스트 css */
 .author_table_wrap ul {margin:0 !important; padding:0 !important;}
-.list-box:first-child {margin-top:15px}
-
+.list-box:first-child {margin-top:15px;}
 	/* 내리스트 box디자인 */
 .list-box {
 	width:90%; 

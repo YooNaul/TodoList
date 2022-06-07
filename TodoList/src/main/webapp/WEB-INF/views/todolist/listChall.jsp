@@ -11,7 +11,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style type="text/css">
 @import url(./resources/css/style.css);
-@import url(./resources/jquery/progressbar.css);
+@import url(/resources/jquery/progressbar.css);
 </style>
 </head>
 
@@ -23,12 +23,14 @@
              	
              	<ul>
              		<c:forEach items="${list}" var="list">
-<<<<<<< HEAD
+
              		
-=======
+				<!-- 
              		<a href="/todolist/popUp?idx=${list.idx }">
->>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
-         		<li class="list-box" style="margin-bottom:10px">
+             		
+					</a>
+					 -->
+         		<li class="list-box" style="margin-bottom:10px" data-listIdx = "${list.idx}">
          		
          		<div>
          		
@@ -38,39 +40,19 @@
          		
 
          
-					
+			
          		</div>
          		<div class="chall-percent">
          		
          		</div>
          		<div class="wrap-progress-bar">
          	<div class="progress-gage"></div>
-         		</div>
-         		<!--  	
-<<<<<<< HEAD
-
-         			<td><value="${list.regiDate}"/></td>
-         			<td><c:out value="${list.complDate}"></c:out></td>
-         			<td><c:out value="${list.complDate}"></c:out></td>
-=======
-<<<<<<< HEAD
-         		
->>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
->>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
->>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
-         			<td><c:out value="${list.challStatus}"></c:out> </td>
-         			<td><c:out value="${list.failStatus}"></c:out> </td>
-         			<td><a href="/todolist/listUpdate?idx=${list.idx }">수정</a></td>
-         			<td><a href="/todolist/success?idx=${list.idx }">성공</a></td>
-         			<td><a href="/todolist/giveup?idx=${list.idx }">삭제</a></td>
-         		-->
-<<<<<<< HEAD
-         	
+         		</div>     	
          		</li>
+      
+         	
          		
-=======
-         		</li></a>
->>>>>>> branch 'master' of https://github.com/YooNaul/TodoList.git
+
          		</c:forEach>
       	       </ul>       			
          </div>                    
@@ -96,8 +78,9 @@ list.push(Math.floor(result));
 
 	
   const challPer = document.querySelectorAll(".chall-percent");
+
   challPer.forEach(function(ele, idx){
-		if(list[idx] == 100) {
+		if(list[idx] >= 100) {
 		 ele.innerHTML="완료";
        }
 	else {
@@ -111,11 +94,15 @@ list.push(Math.floor(result));
 	const setCompleteList = new completeCount();	
 	const getCompleteList = setCompleteList.completeChecker(list);
 	
-	if(getCompleteList) {
-	
-	}
+	$(".list-box").click(function(){
+		var $contents = $(".contents");
+		var listIdx = $(this).data("listidx");
+		$contents.load("/todolist/popUp?idx="+listIdx+"&percent="+70);
+	})
 </script>
 
-
+<script>
+	
+</script>
 </body>
 </html>

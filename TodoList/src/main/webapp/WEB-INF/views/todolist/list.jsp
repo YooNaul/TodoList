@@ -18,7 +18,6 @@
          			<li class="list-box" ><c:out value="${list.detail}"></c:out><span class="mod_btn"><i class="fi fi-rr-menu-dots"></i></span></li>
          		
          	
-         	
          		<div class="mod_box">
          				<li> <a href="/todolist/success?idx=${list.idx }">완료</a></li>
          				<li> <a href="/todolist/giveup?idx=${list.idx }">삭제</a></li>
@@ -35,31 +34,16 @@
          </div>                    
 <script>
 
-
-var modBtn =  document.querySelectorAll(".mod_btn");
-var modBoxs =  document.querySelectorAll(".mod_box");
-
-/* 수정아이콘 클릭 성공,삭제,취소 모달창 */
-modBtn.forEach(function(ele, idx){
-	ele.addEventListener("click", function(){
-		modBoxs.forEach(function(ele){
-			ele.classList.remove("on");
-		})	
-		var parentLi = this.parentNode.parentNode;
-		var modBox = parentLi.childNodes[3];
-		modBox.classList.add("on");
-		
-		var clsBtn = modBox.childNodes[5];
-		clsBtn.addEventListener("click", function(){
-		this.parentNode.classList.remove("on");
-		})
-		
-	});
+$(".mod_btn").click(function(){
+	$ModBox = $(".mod_box");
+	$currentModBox = $(this).parent().siblings(".mod_box");
+	$ModBox.removeClass("on");
+	$currentModBox.addClass("on");
 });
 
-
-
-
+$(".close_mod").click(function(){
+	$(".mod_box").removeClass("on");
+});
 </script>
 </body>
 </html>
