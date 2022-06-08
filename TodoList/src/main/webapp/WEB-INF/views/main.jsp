@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
 <head>
 <style type="text/css">
@@ -27,11 +29,12 @@
 </head>
 
 <body>
-
+	
     <div id="root">
 
         <div id="notice_box">
-            <h5 class="notice_head">${member.name } 님 알림함<i class=" fi fi-rr-cross" id="exit-btn"></i></h5>
+            <h5 class="notice_head">${member.name } 님 알림함 <a href="/todolist/notice">알림ㄱ</a><i class=" fi fi-rr-cross" id="exit-btn"></i></h5>
+            
         </div>
 
         <div class="container">
