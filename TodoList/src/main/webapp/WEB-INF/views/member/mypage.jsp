@@ -36,16 +36,15 @@
 <div class="mypage-info-user-personal">
 <span>${member.name } 님</span><br/>
 <span>todo 사용한지 <b id="join-date"></b> 일쨰</span><br/>
-<span>목표 달성률은 <b></b>% 입니다.</span>
-<span>니 실패횟수 : ${fail }</span>
-<span>니 챌린지 전체 도전 횟수 : ${chall }</span>
+<span>목표 달성률은 <b class="mypage-info-success"></b> 입니다.</span>
+
 </div>
 </div>
 
 <div class="mypage-info-target">
 <h6>목표달성률 <i class="info-text fi fi-rr-interrogation"></i></h6>
 <div class="mypage-info-percent">
-<span id="mypage-percent-data">66%</span>
+<span id="mypage-percent-data" class="mypage-info-success"></span>
 </div>
 </div>
 
@@ -57,8 +56,6 @@
 import { conversionDateFormat,  calcBetweenDay } from '/resources/js/module.js';
 
 const textData =[ {info:"챌린지모드 성공률을 백분률로 나타낸 수치입니다."}, {info:"점수제 설명"}]
-
-console.log(textData);
 
 const today = new Date();
 const joinDate = new  Date('${member.joinDate}');
@@ -95,7 +92,12 @@ const infoText = document.querySelectorAll('.info-text');
 
 })
 
+var challCount = ${chall};
+var failCount = ${fail};
+var successCount = challCount - failCount;
+var challResult = Math.floor( ( successCount / challCount ) * 100);
 
+$(".mypage-info-success").html(challResult+"%");
 </script>
 </body>
 </html>
