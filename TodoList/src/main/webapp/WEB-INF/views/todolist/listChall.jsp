@@ -39,8 +39,7 @@
 <c:out value="${fn:substring(list.regiDate,0,10)}"></c:out>-<c:out value="${fn:substring(list.complDate,0,10)}"></c:out>
          		
 
-         
-			
+         	
          		</div>
          		<div class="chall-percent">
          		
@@ -95,9 +94,10 @@ list.push(Math.floor(result));
 	const getCompleteList = setCompleteList.completeChecker(list);
 	
 	$(".list-box").click(function(){
+		var currentIndex = $(this).index();
 		var $contents = $(".contents");
 		var listIdx = $(this).data("listidx");
-		$contents.load("/todolist/popUp?idx="+listIdx+"&percent="+70);
+		$contents.load("/todolist/popUp?idx="+listIdx+"&percent="+list[currentIndex]);
 	})
 </script>
 
