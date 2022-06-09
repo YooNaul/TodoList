@@ -34,7 +34,26 @@
 
         <div id="notice_box">
             <h5 class="notice_head">${member.name } 님 알림함 <a href="/todolist/notice">알림ㄱ</a><i class=" fi fi-rr-cross" id="exit-btn"></i></h5>
-            
+            <c:choose>
+	            <c:when test="${empty list }">
+	               <tr>
+	                  <td colspan="6" class="text-center">
+	                     알림없어
+	                  </td>
+	               </tr>
+	            </c:when>
+	         <c:otherwise>
+	            <c:forEach items="${list }" var="row" 
+	               varStatus="loop">
+	               <!-- 리스트반복시작 -->
+	               <tr>
+	                  <td class="text-center">${list.detail }</td>
+
+	               </tr>
+	               <!-- 리스트반복끝 -->
+	            </c:forEach>
+	         </c:otherwise>
+	         </c:choose>
         </div>
 
         <div class="container">
@@ -46,7 +65,7 @@
                     </div>
 
                     <div id="notice-btn">
-                        <i class="fi fi-rr-bell"></i>
+                        <a href="/todolist/notice"><i class="fi fi-rr-bell" ></i></a>
                     </div>
                 </header>
                 <div class="contents">

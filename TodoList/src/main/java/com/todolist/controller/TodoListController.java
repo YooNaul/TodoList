@@ -84,6 +84,8 @@ public class TodoListController {
 	@RequestMapping(value="notice", method=RequestMethod.GET)
 	public void todoListChallNotice(TodoListVO list, Model model, HttpSession session) throws Exception {
 		
+		System.out.println("notice진입!");
+		
 		String id = (String)session.getAttribute("id");
 		
 		list.setFailStatus(3);
