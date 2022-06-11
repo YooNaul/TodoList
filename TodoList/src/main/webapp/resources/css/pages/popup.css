@@ -1,0 +1,31 @@
+/*  */
+.chall-detail {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chall-detail-title {
+	padding-top:30px;
+}
+
+.chall-chart {
+	padding:30px;
+}
+
+.chaill-detail-info a {
+	display:block;
+	width:220px;
+	height:70px;
+	margin:0 auto;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	text-decoration:none;
+	text-align:center;
+	line-height:70px;
+	color:#222;
+	border-radius:25px
+}
+
+.percentage {
+	font-size:1.5rem
+}

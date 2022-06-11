@@ -27,8 +27,8 @@ body {
   margin: 0 auto;
   height: 100vh;
     position:relative;
-    z-index:500;
-    
+    z-index:99999;
+    overflow:hidden;
 }
 
 #root.on {
@@ -64,6 +64,27 @@ body {
     }
 .nav-bar > ul > li > i.on {color:#5B89FF}
 
+#notice_box {
+	position:absolute;
+	width:320px;
+	height:100%;
+	right:0;
+	z-index:1000;
+	background:#fff;
+	transform:translateX(320px);
+	transition:all 0.5s;
+}
 
+#notice_box.on {
+	transform:translateX(0);
+}
+
+.notice_head {
+	padding: 20px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+    justify-content: space-between;
+    
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -36,25 +36,26 @@
 <div class="mypage-info-user-personal">
 <span>${member.name } 님</span><br/>
 <span>todo 사용한지 <b id="join-date"></b> 일쨰</span><br/>
-<span>목표 달성률은 <b></b>% 입니다.</span>
-<span>니 실패횟수 : ${fail }</span>
-<span>니 챌린지 전체 도전 횟수 : ${chall }</span>
+<span>목표 달성률은 <b class="mypage-info-success"></b> 입니다.</span>
+
 </div>
 </div>
 
 <div class="mypage-info-target">
-<h6>목표달성률</h6>
+<h6>목표달성률 <i class="info-text fi fi-rr-interrogation"></i></h6>
 <div class="mypage-info-percent">
-<span id="mypage-percent-data">66%</span>
+<span id="mypage-percent-data" class="mypage-info-success"></span>
 </div>
 </div>
 
 <div class="mypage-info-emblem">
-<h6>보유 엠블럼</h6>
+<h6>보유 엠블럼 <i class="info-text fi fi-rr-interrogation"></i></h6>
 </div>
 </div>
 <script type="module">
 import { conversionDateFormat,  calcBetweenDay } from '/resources/js/module.js';
+
+const textData =[ {info:"챌린지모드 성공률을 백분률로 나타낸 수치입니다."}, {info:"점수제 설명"}]
 
 const today = new Date();
 const joinDate = new  Date('${member.joinDate}');
@@ -74,6 +75,29 @@ if(pageInfo.gender == 1) {
 } else if(pageInfo.gender == 2) {
 		displayUserPicture.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSxkzY44q7-ip0J_hGGCD5rfWZ-1Ncasb6nzoDVJed0dm05UKlXpjD6BEHooOjTp7Pk_Y&usqp=CAU')";  
 }
+
+const infoText = document.querySelectorAll('.info-text');
+	infoText.forEach(function(element, idx){
+	element.addEventListener("mouseover", function(){
+	  	const newDiv = document.createElement("div");
+		const newSpan = document.createElement("span");
+		newDiv.classList.add("info-box-frame");
+		newDiv.appendChild(newSpan);
+		newSpan.innerHTML=textData[idx].info;
+		this.appendChild(newDiv);
+})
+		element.addEventListener("mouseout", function(){
+	  	this.children[0].remove();
+})
+
+})
+
+var challCount = ${chall};
+var failCount = ${fail};
+var successCount = challCount - failCount;
+var challResult = Math.floor( ( successCount / challCount ) * 100);
+
+$(".mypage-info-success").html(challResult+"%");
 </script>
 </body>
 </html>

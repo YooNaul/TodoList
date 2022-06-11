@@ -50,6 +50,7 @@ public class TodoListController {
 		
 		//System.out.println(id);
 		
+		list.setFailStatus(0);
 		list.setChallStatus(1);
 		list.setId(id);
 				
@@ -61,12 +62,13 @@ public class TodoListController {
 	
 	//할일 리스트뽑아주기(챌린지)
 	@RequestMapping(value="listChall", method=RequestMethod.GET)
-	public void todoListChall(TodoListVO list, Model model, HttpServletRequest request, HttpSession session) throws Exception {
+	public void todoListChall(TodoListVO list, Model model, HttpSession session) throws Exception {
 		
 		String id = (String)session.getAttribute("id");
 		
 		//System.out.println(id);
 		
+		list.setFailStatus(0);
 		list.setChallStatus(0);
 		list.setId(id);
 				
@@ -77,6 +79,25 @@ public class TodoListController {
 		model.addAttribute("list", lists);
 
 	}
+	
+	//알림창 리스트(챌린지만)
+	@RequestMapping(value="notice", method=RequestMethod.GET)
+	public void todoListChallNotice(TodoListVO list, Model model, HttpSession session) throws Exception {
+		
+		System.out.println("notice진입!");
+		
+		String id = (String)session.getAttribute("id");
+		
+		list.setFailStatus(3);
+		list.setChallStatus(0);
+		list.setId(id);
+				
+		List lists = todolistservice.list_select(list);
+		
+		model.addAttribute("list", lists);
+		
+	}
+	
 	
 	@RequestMapping(value="listInsert", method = RequestMethod.GET)
 	public void todoList_InsertPage() throws Exception {

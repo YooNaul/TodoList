@@ -7,8 +7,8 @@
 	<!-- 할일 목록 보기 -->
 	<select id="list_select" resultType="com.todolist.model.TodoListVO">
 	
-		select idx, detail, regiDate, complDate, challStatus, failStatus from todolist where (failStatus = 0 or failStatus = 3)
-			and id = #{id} and challStatus = #{challStatus} order by failStatus=3 desc, idx desc
+		select idx, detail, regiDate, complDate, challStatus, failStatus from todolist where failStatus = #{failStatus}
+			and id = #{id} and challStatus = #{challStatus} order by idx desc
 	</select>
 	
 	<!-- 할일 등록하기 -->
